@@ -1,5 +1,5 @@
 {% set goname = "syft" %}
-{% set version = "0.101.0" %}
+{% set version = "0.101.1" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 source:
   - folder: src
     url: https://github.com/anchore/syft/archive/v{{ version }}.tar.gz
-    sha256: 6b36bf53efd6fd13e5162930c4902895f0894dbd77be7a5277dd11412fec994c
+    sha256: 1d16c9d09a276c597f324b7f57feccce57a885087bcd5f38c0adeb4fa34e52b1
   - url: https://gitlab.com/cznic/mathutil/-/raw/b13e5b5643328f15fd2fcedc85f647f0d8f9180f/LICENSE  # v1.5.0
     sha256: bfa9bf72a72ca009fd62a8f84fca3dca67e51d93af96352723646599898b6cf5
     fn: LICENSE-mathutil
