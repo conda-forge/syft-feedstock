@@ -1,45 +1,46 @@
-{% set goname = "syft" %}
-{% set version = "1.23.1" %}
+schema_version: 1
 
+context:
+  goname: syft
+  version: 1.23.1
 
 package:
-  name: {{ goname|lower }}
-  version: {{ version|replace("-", "_") }}
+  name: ${{ goname|lower }}
+  version: ${{ version|replace("-", "_") }}
 
 source:
-  - folder: src
-    url: https://github.com/anchore/syft/archive/v{{ version }}.tar.gz
+  - url: https://github.com/anchore/syft/archive/v${{ version }}.tar.gz
     sha256: a3bb388a1287da5d871d3bef195fec0f4a2352b42367bbd11ac98eac731c43b0
+    target_directory: src
   - url: https://gitlab.com/cznic/mathutil/-/raw/b13e5b5643328f15fd2fcedc85f647f0d8f9180f/LICENSE  # v1.5.0
     sha256: bfa9bf72a72ca009fd62a8f84fca3dca67e51d93af96352723646599898b6cf5
-    fn: LICENSE-mathutil
+    file_name: LICENSE-mathutil
   - url: https://raw.githubusercontent.com/xi2/xz/48954b6210f8d154cb5f8484d3a3e1f83489309e/LICENSE
     sha256: 5c640056d513f276d56635af7a0bed81cb7eac02a31b6e56d40c416557a8d8ce
-    fn: LICENSE-xz
+    file_name: LICENSE-xz
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
+  skip: win
 
 requirements:
   build:
-    - {{ compiler('go-nocgo') }}
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
 
-test:
-  commands:
-    - syft --version | grep {{ version }}
+tests:
+  - script:
+      - syft --version | grep ${{ version }}
 
 about:
-  home: https://github.com/anchore/syft
   license: Apache-2.0
-  license_family: Apache
   license_file:
     - src/LICENSE
     - library_licenses/
     - LICENSE-xz
     - LICENSE-mathutil
   summary: CLI tool and library for generating a Software Bill of Materials from container images and filesystems
+  homepage: https://github.com/anchore/syft
 
 extra:
   recipe-maintainers:
