@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   goname: syft
-  version: "1.25.1"
+  version: "1.26.0"
 
 package:
   name: ${{ goname|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/anchore/syft/archive/v${{ version }}.tar.gz
-    sha256: 6cb1052356177c1a6972122d7c6395448a65b49f548f63303bebf45965810733
+    sha256: 135a84eba084f7d3fa1df3eb9fa15e5a27908c8c90b3b914795f5cae7cdf672f
     target_directory: src
   - url: https://gitlab.com/cznic/mathutil/-/raw/b13e5b5643328f15fd2fcedc85f647f0d8f9180f/LICENSE  # v1.5.0
     sha256: bfa9bf72a72ca009fd62a8f84fca3dca67e51d93af96352723646599898b6cf5
