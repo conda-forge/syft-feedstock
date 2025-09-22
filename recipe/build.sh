@@ -6,7 +6,10 @@ pushd src/cmd/syft
 go-licenses save . \
     --save_path "${SRC_DIR}"/library_licenses \
     --ignore modernc.org/mathutil \
-    --ignore github.com/xi2/xz
+    --ignore github.com/xi2/xz \
+    --ignore github.com/deitch/magic/pkg/magic \
+    --ignore github.com/deitch/magic/pkg/magic/internal \
+    --ignore github.com/deitch/magic/pkg/magic/parser
 
 go build \
     -v \

@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   goname: syft
-  version: "1.32.0"
+  version: "1.33.0"
 
 package:
   name: ${{ goname|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/anchore/syft/archive/v${{ version }}.tar.gz
-    sha256: bea74282006ba405da09b8d9e700b19f84e72b6fc79326ba0af8327872077202
+    sha256: 7cc0454183d72d7771fd25e7c8fd0469c4881827c3a36a3e3cbb912777b680d9
     target_directory: src
   - url: https://gitlab.com/cznic/mathutil/-/raw/b13e5b5643328f15fd2fcedc85f647f0d8f9180f/LICENSE  # v1.5.0
     sha256: bfa9bf72a72ca009fd62a8f84fca3dca67e51d93af96352723646599898b6cf5
@@ -18,6 +18,9 @@ source:
   - url: https://raw.githubusercontent.com/xi2/xz/48954b6210f8d154cb5f8484d3a3e1f83489309e/LICENSE
     sha256: 5c640056d513f276d56635af7a0bed81cb7eac02a31b6e56d40c416557a8d8ce
     file_name: LICENSE-xz
+  - url: https://raw.githubusercontent.com/deitch/magic/2def47b612f6f806d1e136bbec1c34fdefacf04a/LICENSE
+    sha256: 2423c6eb9948e617a61f7a2d1cb463c69d60e599fbae5931551631d2a8730838
+    file_name: LICENSE-magic
 
 build:
   number: 0
@@ -39,6 +42,7 @@ about:
     - library_licenses/
     - LICENSE-xz
     - LICENSE-mathutil
+    - LICENSE-magic
   summary: CLI tool and library for generating a Software Bill of Materials from container images and filesystems
   homepage: https://github.com/anchore/syft
 
