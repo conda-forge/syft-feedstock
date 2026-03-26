@@ -23,8 +23,8 @@ source:
     file_name: LICENSE-magic
 
 build:
-  number: 0
-  skip: win
+  number: 1
+
 
 requirements:
   build:
@@ -33,7 +33,12 @@ requirements:
 
 tests:
   - script:
-      - syft --version | grep ${{ version }}
+      - if: unix
+        then:
+          - syft --version | grep ${{ version }}
+      - if: win
+        then:
+          - syft.exe --version | findstr ${{ version }}
 
 about:
   license: Apache-2.0
